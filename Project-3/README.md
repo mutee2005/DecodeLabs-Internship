@@ -1,29 +1,44 @@
-# Project 2 - Backend API Development
+# Project 3 - Database Integration
 
-A simple REST API built with Python and Flask.
+A REST API built with Python, Flask and SQLite that performs full CRUD operations with a real database.
 
-
-Develop a backend API to handle application logic with proper endpoints, input handling, and data validation.
+## Goal
+Connect the backend API to a database to permanently store and retrieve data.
 
 ## Tech Stack
 - Python 3
 - Flask
+- Flask-SQLAlchemy
+- SQLite
 
-##  API Endpoints
+## Database Schema
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/tasks` | Get all tasks |
-| GET | `/tasks/<id>` | Get a single task by ID |
-| POST | `/tasks` | Create a new task |
-| POST | `/tasks/<id>/complete` | Mark a task as completed |
+**Table: tasks**
 
-##✅ Key Features
-- RESTful API design
+| Column | Type | Description |
+|--------|------|-------------|
+| id | Integer | Auto-generated primary key |
+| title | String(100) | Task title (required) |
+| description | String(300) | Task description (optional) |
+| completed | Boolean | Completion status (default: false) |
+
+## API Endpoints
+
+| Method | Endpoint | Operation | Description |
+|--------|----------|-----------|-------------|
+| POST | `/tasks` | CREATE | Add a new task |
+| GET | `/tasks` | READ | Get all tasks |
+| GET | `/tasks/<id>` | READ | Get a single task |
+| PUT | `/tasks/<id>` | UPDATE | Update a task |
+| DELETE | `/tasks/<id>` | DELETE | Delete a task |
+
+##Key Features
+- Full CRUD operations
+- Data stored in a persistent SQLite database
 - Input validation with meaningful error messages
 - Consistent JSON response format
-- Proper HTTP status codes (200, 201, 404, 400)
+- Database auto-created on first run
 
-## How to Run
+##How to Run
 
 1. Install dependencies:
